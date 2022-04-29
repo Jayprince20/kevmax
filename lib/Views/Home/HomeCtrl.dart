@@ -1,11 +1,10 @@
 import 'package:get/get.dart';
-import 'package:kevmax/Services/http_service.dart';
 
 class HomeController extends GetxController {
-  var bottomNavIndex = 0;
+  var bottomNavIndex = 0.obs;
   //bottomNav function//
   void onItemTapped(int index) {
-    bottomNavIndex = index;
+    bottomNavIndex.value = index;
   }
 
   var isLoading = true.obs;
@@ -13,24 +12,22 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-    fetchCoffees();
     super.onInit();
   }
 
   void onReady() {
-    fetchCoffees();
     super.onReady();
   }
 
-// method to fetch coffees//
-  void fetchCoffees() async {
-    try {
-      isLoading(true);
-      var coffee = await HttpService.fetchCoffee();
-      productList.value = coffee.data!;
-      print(coffee.data);
-    } finally {
-      isLoading(false);
-    }
-  }
+// // method to fetch coffees//
+//   void fetchCoffees() async {
+//     try {
+//       isLoading(true);
+//       var coffee = await HttpService.fetchCoffee();
+//       productList.value = coffee.data!;
+//       print(coffee.data);
+//     } finally {
+//       isLoading(false);
+//     }
+//   }
 }

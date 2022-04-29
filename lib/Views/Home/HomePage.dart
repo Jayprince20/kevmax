@@ -12,20 +12,22 @@ class HomePage extends GetWidget<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: controller.bottomNavIndex,
-        children: [
-          Home(),
-          Cart(),
-          Favorite(),
-          Notifications(),
-        ],
+      body: Obx(
+        () => (IndexedStack(
+          index: controller.bottomNavIndex.value,
+          children: [
+            Home(),
+            Cart(),
+            Favorite(),
+            Notifications(),
+          ],
+        )),
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Color(0xFFEFE3C8),
         backgroundColor: Color(0xFF22151F),
         onTap: controller.onItemTapped,
-        currentIndex: controller.bottomNavIndex,
+        currentIndex: controller.bottomNavIndex.value,
         iconSize: 42,
         selectedFontSize: 14,
         showSelectedLabels: true,

@@ -1,4 +1,3 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,10 +41,7 @@ class ProductImage extends StatelessWidget {
               ),
               errorWidget: (context, url, error) => Center(
                 child: InkWell(
-                  onTap: () {
-                    // Get.toNamed(
-                    //     AppRoutes.LOGEMENTDETAILS);
-                  },
+                  onTap: () {},
                   child: Icon(
                     Icons.error,
                     size: 100,
@@ -54,25 +50,28 @@ class ProductImage extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                    blurRadius: 10,
-                    color: Colors.black26,
-                    spreadRadius: 5)
-              ],
-            ),
-            child: GestureDetector(
-              onTap: () {
-                Get.toNamed(AppRoutes.HOMEPAGE);
-              },
-              child: CircleAvatar(
-                backgroundColor: Colors.white.withOpacity(0.6),
-                child: Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
+          Positioned(
+            bottom: 190,
+            left: 0,
+            right: 280,
+            child: Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 10, color: Colors.black26, spreadRadius: 5)
+                ],
+              ),
+              child: GestureDetector(
+                onTap: () {
+                  Get.toNamed(AppRoutes.HOMEPAGE);
+                },
+                child: CircleAvatar(
+                  backgroundColor: Colors.white.withOpacity(0.6),
+                  child: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
